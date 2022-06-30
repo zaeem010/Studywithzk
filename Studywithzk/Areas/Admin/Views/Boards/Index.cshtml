@@ -1,0 +1,79 @@
+﻿@model List<Boards>
+@{
+    ViewData["Title"] = "Index";
+    int sr = 0;
+}
+<div class="content-header row">
+    <div class="content-header-left col-md-9 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+            <div class="col-12">
+                <h2 class="content-header-title float-left mb-0">Boards</h2>
+                <div class="breadcrumb-wrapper">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a asp-action="Index" asp-controller="Home" asp-area="Admin">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            Boards List
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dt-action-buttons text-right offset-1">
+            <div class="dt-buttons d-inline-flex">
+                <a class="btn btn-primary" asp-area="Admin" asp-action="Create">
+                    <span><i class="fa fa-plus pr-1"></i>Create New</span>
+                </a>
+            </div>
+        </div>
+</div>
+<div class="content-body">
+    <!-- Basic table -->
+    <section id="basic-datatable">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <table class="table" id="datatable">
+                        <thead>
+                            <tr>
+                                <th>Sr</th>
+                                <th>Country Name</th>
+                                <th>State Name</th>
+                                <th>Board Name</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Sr</th>
+                                <th>Country Name</th>
+                                <th>State Name</th>
+                                <th>Board Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var lst in Model)
+                            {
+                                <tr>
+                                    <td>@{sr++;}@sr</td>
+                                    <td>@lst.Countrys.CountryName</td>
+                                    <td>@lst.States.StatesName</td>
+                                    <td>@lst.BoardName</td>
+                                    <td>
+                                        <a asp-area="Admin" asp-action="Edit" asp-route-Id="@lst.Id" class="btn btn-primary" data-toggle="tooltip" title="Click Me to Edit"><i data-feather='edit'></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--/ Basic table -->
+</div>

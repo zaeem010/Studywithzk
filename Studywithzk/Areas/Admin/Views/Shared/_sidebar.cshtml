@@ -1,0 +1,80 @@
+﻿        <!--Sidebar End-->
+<ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+    <li class=" nav-item">
+        <a class="d-flex align-items-center" asp-area="Admin" asp-action="Index" asp-controller="Home">
+            <i data-feather="home"></i>
+            <span class="menu-title text-truncate" data-i18n="Dashboards">Dashboards</span>
+        </a>
+    </li>
+    <li class="navigation-header">
+        <span data-i18n="Registration">Registration</span><i data-feather="more-horizontal"></i>
+    </li>
+    <li class=" nav-item">
+        <a class="d-flex align-items-center" href="#">
+            <i data-feather="file-text"></i>
+            <span class="menu-title text-truncate" data-i18n="Country">Country</span>
+        </a>
+        <ul class="menu-content">
+            @*<li>
+                <a class="d-flex align-items-center" asp-area="Admin" asp-action="Create" asp-controller="Country">
+                    <i data-feather="circle"></i>
+                    <span class="menu-item text-truncate" data-i18n="Create">Create</span>
+                </a>
+
+            </li>*@
+            <li>
+                <a class="d-flex align-items-center" asp-area="Admin" asp-action="Index" asp-controller="Country">
+                    <i data-feather="circle"></i>
+                    <span class="menu-item text-truncate" data-i18n="CountryList">List</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class=" nav-item">
+        <a class="d-flex align-items-center" href="#">
+            <i data-feather="file-text"></i>
+            <span class="menu-title text-truncate" data-i18n="State">State/Province</span>
+        </a>
+        <ul class="menu-content">
+            @*<li>
+                <a class="d-flex align-items-center" asp-area="Admin" asp-action="Create" asp-controller="State">
+                    <i data-feather="circle"></i>
+                    <span class="menu-item text-truncate" data-i18n="Create">Create</span>
+                </a>
+
+            </li>*@
+            <li>
+                <a class="d-flex align-items-center" asp-area="Admin" asp-action="Index" asp-controller="State">
+                    <i data-feather="circle"></i>
+                    <span class="menu-item text-truncate" data-i18n="StateList">List</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class=" nav-item">
+        <a class="d-flex align-items-center" href="#">
+            <i data-feather="file-text"></i>
+            <span class="menu-title text-truncate" data-i18n="Boards">Boards</span>
+        </a>
+        <ul class="menu-content">
+            <li>
+                <a class="d-flex align-items-center" asp-area="Admin" asp-action="Create" asp-controller="Boards">
+                    <i data-feather="circle"></i>
+                    <span class="menu-item text-truncate" data-i18n="BoardsCreate">Create</span>
+                </a>
+            </li>
+            <li>
+                <a class="d-flex align-items-center" asp-area="Admin" asp-action="Index" asp-controller="Boards">
+                    <i data-feather="circle"></i>
+                    <span class="menu-item text-truncate" data-i18n="BoardsList">List</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li class="navigation-header">
+        <span data-i18n="Services">Comming</span><i data-feather="more-horizontal"></i>
+    </li>
+
+</ul>
+<!--Sidebar Start-->

@@ -1,0 +1,22 @@
+﻿.searchspan {
+    position: absolute;
+    z-index: 10;
+    font-size: 16px;
+    line-height: 38px;
+    left: 13px;
+    top: 0;
+    color: #74788d;
+}
+
+.searchformcontrol {
+    border: none;
+    height: 38px;
+    padding-left: 30px;
+    padding-right: 0px;
+    background-color: #a0a6ad;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 30px;
+    width: 100%;
+    color: white;
+}

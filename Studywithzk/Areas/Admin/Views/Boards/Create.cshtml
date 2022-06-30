@@ -1,0 +1,80 @@
+﻿@model BoardVM
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="d-none" id="stid">@Model.Boards.StatesId</div>
+<div class="content-header row">
+    <div class="content-header-left col-md-9 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+            <div class="col-12">
+                <h2 class="content-header-title float-left mb-0">Board</h2>
+                <div class="breadcrumb-wrapper">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a asp-action="Index" asp-controller="Home" asp-area="Admin">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            Board
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dt-action-buttons text-right offset-1">
+        <div class="dt-buttons d-inline-flex">
+            <a class="btn btn-primary" asp-area="Admin" asp-action="Index">
+                <span><i class="fa fa-list pr-1"></i>Boards List</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="content-body">
+    <section id="multiple-column-form">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form" asp-action="Save">
+                            <div class="row">
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group">
+                                        <label>Select Country</label>
+                                        <select class="form-control" asp-for="Boards.CountrysId" asp-items="Model.CountryList" onchange="GetStates(this.value)">
+                                            <option value="">select</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="Boards.CountrysId"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group">
+                                        <label>Select State</label>
+                                        <select class="form-control" asp-for="Boards.StatesId">
+                                            <option value="">select</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="Boards.StatesId"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group">
+                                        <label>Board Name</label>
+                                        <input class="form-control" placeholder="Values" asp-for="Boards.BoardName" />
+                                        <span class="text-danger" asp-validation-for="Boards.BoardName"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary mr-1">Submit/Update</button>
+                                </div>
+                            </div>
+                            <input type="hidden" asp-for="Boards.Id" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Basic Floating Label Form section end -->
+</div>
+<script src="~/js/Boards.js" asp-append-version="true"></script>
+<partial name="_ValidationScriptsPartial" />
