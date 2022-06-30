@@ -45,15 +45,5 @@ namespace Studywithzk.Models
         [MaxLength(455)]
         [Required(ErrorMessage = "class Name is Required")]
         public string className { get; set; }
-
-        [Required(ErrorMessage = "Country is Required")]
-        public long CountrysId { get; set; }
-        [Required(ErrorMessage = "State is Required")]
-        public long StatesId { get; set; }
-        [Required(ErrorMessage = "Boards is Required")]
-        public long BoardsId { get; set; }
-        public virtual States States { get; set; }
-        public virtual Boards Boards { get; set; }
-        public virtual Countrys Countrys { get; set; }
     }
 }
