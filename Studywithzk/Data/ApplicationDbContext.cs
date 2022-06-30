@@ -18,6 +18,8 @@ namespace Studywithzk.Data
         public DbSet<States> States { get; set; }
         public DbSet<Boards> Boards { get; set; }
         public DbSet<ExamClass> ExamClass { get; set; }
+        public DbSet<ExamYear> ExamYear { get; set; }
+        public DbSet<ExamSubject> ExamSubject { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

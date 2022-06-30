@@ -46,4 +46,20 @@ namespace Studywithzk.Models
         [Required(ErrorMessage = "class Name is Required")]
         public string className { get; set; }
     }
+    public class ExamYear
+    {
+        [Key]
+        public long Id { get; set; }
+        [MaxLength(455)]
+        [Required(ErrorMessage = "Year is Required")]
+        public string YearName { get; set; }
+    }
+    public class ExamSubject
+    {
+        [Key]
+        public long Id { get; set; }
+        [MaxLength(455)]
+        [Required(ErrorMessage = "Subject Name is Required")]
+        public string SubjectName { get; set; }
+    }
 }
