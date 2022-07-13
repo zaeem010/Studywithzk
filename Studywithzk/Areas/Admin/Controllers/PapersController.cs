@@ -22,9 +22,18 @@ namespace Studywithzk.Areas.Admin.Controllers
             _db = db;
             this.host = host;
         }
-        public IActionResult Index()
+        [HttpGet]
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var Li = await _db.UnsolvedPaper
+                .Include(z => z.Countrys)
+                .Include(z => z.States)
+                .Include(z => z.Boards)
+                .Include(z => z.ExamClass)
+                .Include(z => z.ExamYear)
+                .Include(z => z.ExamSubject)
+                .ToListAsync();
+            return View(Li);
         }
         public IActionResult Create()
         {
@@ -87,6 +96,7 @@ namespace Studywithzk.Areas.Admin.Controllers
             }
             if (UnsolvedPaper.Id == 0)
             {
+                UnsolvedPaper.Verify = true;
                 await _db.UnsolvedPaper.AddAsync(UnsolvedPaper);
                 AddNotificationToView("Uploaded Successfully", true);
                 d = "Create";
@@ -94,11 +104,45 @@ namespace Studywithzk.Areas.Admin.Controllers
             else 
             {
                 _db.UnsolvedPaper.Update(UnsolvedPaper);
+                AddNotificationToView("Updated Successfully", true);
                 d = "Index";
             }
             await _db.SaveChangesAsync();
             return RedirectToAction(d);
         }
-
+        [HttpGet]
+        public async Task<IActionResult> Edit(long Id)
+        {
+            var Lst = await _db.UnsolvedPaper.FindAsync(Id);
+            IEnumerable<SelectListItem> CountryList = _db.Countrys.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.CountryName
+            });
+            IEnumerable<SelectListItem> YearList = _db.ExamYear.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.YearName
+            });
+            IEnumerable<SelectListItem> ClassList = _db.ExamClass.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.className
+            });
+            IEnumerable<SelectListItem> SubjectList = _db.ExamSubject.Select(c => new SelectListItem
+            {
+                Value = c.Id.ToString(),
+                Text = c.SubjectName
+            });
+            var VM = new UnSolvedPaperVM
+            {
+                CountryList = CountryList,
+                YearList = YearList,
+                ClassList = ClassList,
+                SubjectList = SubjectList,
+                UnsolvedPaper = Lst,
+            };
+            return View("Create",VM);
+        }
     }
 }

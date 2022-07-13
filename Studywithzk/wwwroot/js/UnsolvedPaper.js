@@ -1,7 +1,9 @@
 ﻿$(document).ready(function () {
-    var countryId = $('#UnsolvedPaper_StatesId').val();
+    var countryId = $('#UnsolvedPaper_CountrysId').val();
     var stateId = $('#stid').text();
+    var boardid = $('#boardid').text();
     GetStates(countryId, stateId);
+    GetBoard(stateId, boardid);
 
 
     ClassicEditor.create(document.querySelector('#editor'), {
@@ -15,7 +17,6 @@
             console.error(err.stack);
         });
 });
-
 
 function GetStates(val, stateId) {
     $.ajax({

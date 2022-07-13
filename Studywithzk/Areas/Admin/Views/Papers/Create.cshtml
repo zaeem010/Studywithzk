@@ -4,6 +4,7 @@
 }
 
 <div class="d-none" id="stid">@Model.UnsolvedPaper.StatesId</div>
+<div class="d-none" id="boardid">@Model.UnsolvedPaper.BoardsId</div>
 <div class="content-header row">
     <div class="content-header-left col-md-9 col-12 mb-2">
         <div class="row breadcrumbs-top">
@@ -36,7 +37,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form class="form" asp-action="Save">
+                        <form class="form" asp-action="Save" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col-md-4 col-12">
                                     <div class="form-group">
@@ -114,6 +115,9 @@
                                 </div>
                             </div>
                             <input type="hidden" asp-for="UnsolvedPaper.Id" />
+                            <input type="hidden" asp-for="UnsolvedPaper.PaperPath" />
+                            <input type="hidden" asp-for="UnsolvedPaper.RegisterDate" />
+                            <input type="hidden" asp-for="UnsolvedPaper.Verify" />
                         </form>
                     </div>
                 </div>

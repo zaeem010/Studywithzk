@@ -22,11 +22,9 @@ namespace Studywithzk.Models
         public long ExamClassId { get; set; }
         [Required(ErrorMessage = "Select Subject")]
         public long ExamSubjectId { get; set; }
-        [Required(ErrorMessage = "Enter Papers Details...")]
         public string UnSolved { get; set; }
         public DateTime RegisterDate { get; set; }
         public bool Verify { get; set; }
-        [Required(ErrorMessage = "Uplaod Papers ...")]
         public string PaperPath { get; set; }
        //
         public virtual Countrys Countrys { get; set; }
