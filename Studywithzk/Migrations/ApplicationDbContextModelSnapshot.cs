@@ -353,6 +353,58 @@ namespace Studywithzk.Migrations
                     b.ToTable("States");
                 });
 
+            modelBuilder.Entity("Studywithzk.Models.UnsolvedPaper", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("BoardsId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("CountrysId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ExamClassId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ExamSubjectId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ExamYearId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("RegisterDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("StatesId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("UnSolved")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Verify")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BoardsId");
+
+                    b.HasIndex("CountrysId");
+
+                    b.HasIndex("ExamClassId");
+
+                    b.HasIndex("ExamSubjectId");
+
+                    b.HasIndex("ExamYearId");
+
+                    b.HasIndex("StatesId");
+
+                    b.ToTable("UnsolvedPaper");
+                });
+
             modelBuilder.Entity("Studywithzk.Models.Role", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole<int>");
@@ -495,6 +547,57 @@ namespace Studywithzk.Migrations
                         .IsRequired();
 
                     b.Navigation("Countrys");
+                });
+
+            modelBuilder.Entity("Studywithzk.Models.UnsolvedPaper", b =>
+                {
+                    b.HasOne("Studywithzk.Models.Boards", "Boards")
+                        .WithMany()
+                        .HasForeignKey("BoardsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Studywithzk.Models.Countrys", "Countrys")
+                        .WithMany()
+                        .HasForeignKey("CountrysId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Studywithzk.Models.ExamClass", "ExamClass")
+                        .WithMany()
+                        .HasForeignKey("ExamClassId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Studywithzk.Models.ExamSubject", "ExamSubject")
+                        .WithMany()
+                        .HasForeignKey("ExamSubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Studywithzk.Models.ExamYear", "ExamYear")
+                        .WithMany()
+                        .HasForeignKey("ExamYearId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Studywithzk.Models.States", "States")
+                        .WithMany()
+                        .HasForeignKey("StatesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Boards");
+
+                    b.Navigation("Countrys");
+
+                    b.Navigation("ExamClass");
+
+                    b.Navigation("ExamSubject");
+
+                    b.Navigation("ExamYear");
+
+                    b.Navigation("States");
                 });
 
             modelBuilder.Entity("Studywithzk.Models.RoleClaim", b =>

@@ -1,0 +1,118 @@
+﻿@model UnSolvedPaperVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="d-none" id="stid">@Model.UnsolvedPaper.StatesId</div>
+<div class="content-header row">
+    <div class="content-header-left col-md-9 col-12 mb-2">
+        <div class="row breadcrumbs-top">
+            <div class="col-12">
+                <h2 class="content-header-title float-left mb-0">Un Solved paper</h2>
+                <div class="breadcrumb-wrapper">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a asp-action="Index" asp-controller="Home" asp-area="Admin">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            Un Solved paper
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dt-action-buttons text-right offset-1">
+        <div class="dt-buttons d-inline-flex">
+            <a class="btn btn-primary" asp-area="Admin" asp-action="Index">
+                <span><i class="fa fa-list pr-1"></i>List</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="content-body">
+    <section id="multiple-column-form">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="form" asp-action="Save">
+                            <div class="row">
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group">
+                                        <label>Select Country</label>
+                                        <select class="form-control" asp-for="UnsolvedPaper.CountrysId" asp-items="Model.CountryList" onchange="GetStates(this.value)">
+                                            <option value="">select</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="UnsolvedPaper.CountrysId"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group">
+                                        <label>Select State</label>
+                                        <select class="form-control" asp-for="UnsolvedPaper.StatesId">
+                                            <option value="">select</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="UnsolvedPaper.StatesId"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group">
+                                        <label>Select Board</label>
+                                        <select class="form-control" asp-for="UnsolvedPaper.BoardsId">
+                                            <option value="">select</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="UnsolvedPaper.BoardsId"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group">
+                                        <label>Select Year</label>
+                                        <select class="form-control" asp-for="UnsolvedPaper.ExamYearId" asp-items="Model.YearList">
+                                            <option value="">select</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="UnsolvedPaper.ExamYearId"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group">
+                                        <label>Select Class</label>
+                                        <select class="form-control" asp-for="UnsolvedPaper.ExamClassId" asp-items="Model.ClassList">
+                                            <option value="">select</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="UnsolvedPaper.ExamClassId"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <div class="form-group">
+                                        <label>Select Subject</label>
+                                        <select class="form-control" asp-for="UnsolvedPaper.ExamSubjectId" asp-items="Model.SubjectList">
+                                            <option value="">select</option>
+                                        </select>
+                                        <span class="text-danger" asp-validation-for="UnsolvedPaper.ExamSubjectId"></span>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>Unsolved Paper</label>
+                                        <textarea asp-for="UnsolvedPaper.UnSolved" id="editor"></textarea>
+                                        <span class="text-danger" asp-validation-for="UnsolvedPaper.UnSolved"></span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary mr-1">Submit/Update</button>
+                                </div>
+                            </div>
+                            <input type="hidden" asp-for="UnsolvedPaper.Id" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Basic Floating Label Form section end -->
+</div>
+
+<script src="/js/UnsolvedPaper.js" asp-append-version="true"></script>
+<partial name="_ValidationScriptsPartial" />

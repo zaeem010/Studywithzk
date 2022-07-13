@@ -11,4 +11,12 @@ namespace Studywithzk.Models
         public IEnumerable<SelectListItem> CountryList { get; set; }
         public Boards Boards { get; set; }
     }
+    public class UnSolvedPaperVM
+    {
+        public IEnumerable<SelectListItem> CountryList { get; set; }
+        public IEnumerable<SelectListItem> YearList { get; set; }
+        public IEnumerable<SelectListItem> ClassList { get; set; }
+        public IEnumerable<SelectListItem> SubjectList { get; set; }
+        public UnsolvedPaper UnsolvedPaper { get; set; }
+    }
 }

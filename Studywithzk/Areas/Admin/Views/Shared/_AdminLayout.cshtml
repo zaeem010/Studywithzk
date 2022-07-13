@@ -64,8 +64,18 @@
         tfoot {
             display: table-header-group;
         }
+        .ck-editor__editable[role="textbox"] {
+            /* editing area */
+            min-height: 200px;
+        }
+
+        .ck-content .image {
+            /* block images */
+            max-width: 80%;
+            margin: 20px auto;
+        }
     </style>
-    <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+   
 </head>
 
 <!-- END: Head-->
@@ -80,7 +90,7 @@
                 <ul class="nav navbar-nav d-xl-none">
                     <li class="nav-item"><a class="nav-link menu-toggle" href="javascript:void(0);"><i class="ficon" data-feather="menu"></i></a></li>
                 </ul>
-              
+
             </div>
             <ul class="nav navbar-nav align-items-center ml-auto">
 
@@ -278,6 +288,7 @@
         </script>
     }
     <script src="~/select2/js/CustomSelect2.js" asp-append-version="true"></script>
+    <script src="/ckeditor5/ckeditor.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 <!-- END: Body-->

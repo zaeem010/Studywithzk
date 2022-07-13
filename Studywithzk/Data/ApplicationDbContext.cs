@@ -20,6 +20,8 @@ namespace Studywithzk.Data
         public DbSet<ExamClass> ExamClass { get; set; }
         public DbSet<ExamYear> ExamYear { get; set; }
         public DbSet<ExamSubject> ExamSubject { get; set; }
+        //Unsolved Papers
+        public DbSet<UnsolvedPaper> UnsolvedPaper { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
