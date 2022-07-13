@@ -26,6 +26,8 @@ namespace Studywithzk.Models
         public string UnSolved { get; set; }
         public DateTime RegisterDate { get; set; }
         public bool Verify { get; set; }
+        [Required(ErrorMessage = "Uplaod Papers ...")]
+        public string PaperPath { get; set; }
        //
         public virtual Countrys Countrys { get; set; }
         public virtual States States { get; set; }
@@ -33,5 +35,22 @@ namespace Studywithzk.Models
         public virtual ExamYear ExamYear { get; set; }
         public virtual ExamClass ExamClass { get; set; }
         public virtual ExamSubject ExamSubject { get; set; }
+        public virtual List<PapersExtraLink> PapersExtraLink { get; set; }
+        public UnsolvedPaper()
+        {
+            PapersExtraLink = new List<PapersExtraLink>();
+        }
+    }
+    public class PapersExtraLink 
+    {
+        [Key]
+        public long Id { get; set; }
+        public long UnsolvedPaperId { get; set; }
+        [MaxLength(255)]
+        public string Title { get; set; }
+        [MaxLength(255)]
+        public string Description { get; set; }
+        [MaxLength(455)]
+        public string PathLink { get; set; }
     }
 }

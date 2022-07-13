@@ -22,6 +22,7 @@ namespace Studywithzk.Data
         public DbSet<ExamSubject> ExamSubject { get; set; }
         //Unsolved Papers
         public DbSet<UnsolvedPaper> UnsolvedPaper { get; set; }
+        public DbSet<PapersExtraLink> PapersExtraLink { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

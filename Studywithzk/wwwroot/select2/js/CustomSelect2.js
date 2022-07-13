@@ -9,4 +9,9 @@
         //allowClear: true,
         placeholder:"Select"
     });
+    $('#UnsolvedPaper_CountrysId').select2({
+        theme: "classic",
+        allowClear: false,
+        placeholder:"Select"
+    });
 });
